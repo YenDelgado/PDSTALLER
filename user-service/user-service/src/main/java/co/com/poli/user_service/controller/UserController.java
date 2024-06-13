@@ -4,6 +4,7 @@ import co.com.poli.user_service.helper.Response;
 import co.com.poli.user_service.helper.ResponseBuild;
 import co.com.poli.user_service.persistence.entity.User;
 import co.com.poli.user_service.service.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
