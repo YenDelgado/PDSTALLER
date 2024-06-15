@@ -42,6 +42,7 @@ public class ProductController {
     }
     @GetMapping("/{id}")
     public Response findById(@PathVariable("id") Long id){
+
         return build.success(service.findById(id));
     }
     @GetMapping("/category/{id}")

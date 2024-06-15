@@ -22,10 +22,9 @@ public class Movie {
     private String title;
     @NotEmpty(message = "El director no puede ser vacio")
     private String director;
-    @Min(1)
-    @Max(5)
+    @Min(value = 1, message="El valor no puede ser menor a 1")
+    @Max(value = 5, message="El valor no puede ser mayor a 5")
     private int rating;
-
 
     @Override
     public boolean equals(Object o) {
