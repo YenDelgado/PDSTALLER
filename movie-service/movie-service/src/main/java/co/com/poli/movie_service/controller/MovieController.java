@@ -48,6 +48,7 @@ public class MovieController {
 
     @GetMapping("/{id}")
     public Response findByID(@PathVariable("id") Long id){
+
         return build.success(movieService.findById(id));
     }
 

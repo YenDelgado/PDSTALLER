@@ -1,6 +1,5 @@
-package co.com.poli.showtime_service.persistence.entity;
+package co.com.poli.booking_service.persistence.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -12,10 +11,10 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "showtimes")
+@Table(name = "bookings")
 @Getter
 @Setter
-public class Showtime {
+public class Booking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,16 +26,16 @@ public class Showtime {
     private Date date;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "showtime_id")
+    @JoinColumn(name = "booking_id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private List<ShowtimeMovie> movies;
+    private List<BookingMovie> movies;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Showtime showtime = (Showtime) o;
-        return Objects.equals(id, showtime.id);
+        Booking booking = (Booking) o;
+        return Objects.equals(id, booking.id);
     }
 
     @Override
