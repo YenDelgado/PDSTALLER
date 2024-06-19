@@ -1,12 +1,12 @@
 package co.com.poli.booking_service.persistence.entity;
 
+import co.com.poli.booking_service.model.Showtime;
+import co.com.poli.booking_service.model.User;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -20,10 +20,16 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-    //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    @Column(name = "date")
-    private Date date;
+
+    @Column(name = "user_id")
+    private Long userId;
+    @Transient
+    private User user;
+
+    @Column(name = "showtime_id")
+    private Long showtimeId;
+    @Transient
+    private Showtime showtime;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "booking_id")

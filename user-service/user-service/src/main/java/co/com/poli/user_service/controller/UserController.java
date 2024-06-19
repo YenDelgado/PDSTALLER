@@ -31,6 +31,9 @@ public class UserController {
     @DeleteMapping("/{id}")
     public Response delete(@PathVariable("id") Long id){
         User user = service.findById(id);
+        if(user==null){
+            return build.success("El usuario no existe");
+        }
         service.delete(user);
         return build.success(user);
     }
@@ -40,6 +43,10 @@ public class UserController {
     }
     @GetMapping("/{id}")
     public Response findById(@PathVariable("id") Long id){
+        User user = service.findById(id);
+        if(user==null){
+            return build.success("El usuario no existe");
+        }
         return build.success(service.findById(id));
     }
 

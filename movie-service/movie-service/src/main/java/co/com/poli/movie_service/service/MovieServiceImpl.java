@@ -1,6 +1,5 @@
 package co.com.poli.movie_service.service;
 
-
 import co.com.poli.movie_service.persistence.entity.Movie;
 import co.com.poli.movie_service.persistence.repository.MovieRepository;
 import lombok.RequiredArgsConstructor;
